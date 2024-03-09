@@ -1,0 +1,63 @@
+<div class="container">
+    <h1>
+        Fundamentos Angular
+    </h1>
+
+    <h2># Inteporlación</h2>
+    <div class="interpolacion">
+        {{ title }}
+        {{ 5+10 }}
+        {{ "hola_cadena" }}
+    </div>
+
+    <h2># Binding</h2>
+    <div class="binding">
+        <input type="text" [value]="email"/>
+        <button [disabled]="btnDisabled">Enviar</button>
+    </div>
+
+    <h2># Binding Eventos</h2>
+    <div class="eventBinding">
+        <button (click)="mostrarAlerta()">
+            Alerta    
+        </button>
+
+        <hr />
+
+        <div class="contadorOvejas">
+            <div class="box">
+                <span> {{ "🐑".repeat(contadorOvejas) }}</span>
+            </div>
+        </div>
+        <button (click)="contarOveja()">
+            💤
+        </button>
+        <span style="float: right; color: cyan; font-size: 1.5rem;">{{ contadorOvejas }}</span>
+    </div>
+
+    <h2># Data Binding</h2>
+
+    <div class="dataBinding">
+        <h3>🟡 ngModel</h3>
+        <span>Nombre: </span>
+        <div>
+            <!-- 
+                #nameInput="ngModel"
+             -->
+            <input 
+                required
+                type="text"
+                #nameInput="ngModel"
+                [(ngModel)]="persona.nombre"
+            />
+
+            <span 
+                class="message"
+                [class.error]="persona.nombre === ''"
+            >
+                {{ nameInput.valid ? '✅' : '❌ Ingresa un nombre válido' }}
+            </span>
+        </div>
+    </div>
+
+</div>
